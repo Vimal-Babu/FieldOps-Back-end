@@ -86,9 +86,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME' : 'fieldops_db',
         'USER': 'postgres',
+<<<<<<< HEAD
         'PASSWORD': '3609',
         'HOST' : 'localhost',
         'PORT' : '5433'
+=======
+        'PASSWORD': '369',
+        'HOST' : 'localhost',
+        'PORT' : '5432'
+>>>>>>> 40df1f9f5dade2f98d2724dcaf18a2461ca9ab3d
     }
 }
 
