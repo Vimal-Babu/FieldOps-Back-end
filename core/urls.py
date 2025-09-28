@@ -1,50 +1,18 @@
-"""
-URL configuration for fieldops project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
 from django.urls import path
-from core import views
+from . import views
 
 urlpatterns = [
-    path('',views.home,name='home'),
-]
+    # Users
+    path('users/', views.UserListCreateView.as_view(), name='user-list-create'),
+    path('users/<int:pk>/', views.UserDetailView.as_view(), name='user-detail'),
 
-"""
-URL configuration for fieldops project.
+    # Service Requests
+    path('requests/', views.ServiceRequestListCreateView.as_view(), name='service-request-list-create'),
+    path('requests/<int:pk>/', views.ServiceRequestDetailView.as_view(), name='service-request-detail'),
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+    # Task History
+    path('tasks/history/', views.TaskHistoryListCreateView.as_view(), name='task-history-list-create'),
 
-from django.urls import path
-from core import views
-from .views import UserListCerateView,ServiceRequestListCreateView
-
-
-urlpatterns = [
-    path('users/',UserListCerateView.as_view(),name='user_list'),
-    path("requests/", ServiceRequestListCreateView.as_view(), name="request-list-create"),
+    # Task Proof
+    path('tasks/proof/', views.TaskProofListCreateView.as_view(), name='task-proof-list-create'),
 ]
