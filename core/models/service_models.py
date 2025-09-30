@@ -22,6 +22,7 @@ class ServiceRequest(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=255)
     urgency = models.CharField(max_length=10, choices=URGENCY_CHOICES, default="LOW")
+    rating = models.PositiveIntegerField(null=True, blank=True)  # 1-5 scale
     status = models.CharField(max_length=15, choices=STATUS_CHOICES,default="PENDING")
     assigned_worker = models.ForeignKey(
         User,on_delete=models.SET_NULL,null=True,blank=True,related_name="tasks"
